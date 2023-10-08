@@ -55,49 +55,49 @@ spec:
 
 ---
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: default-simple-api
-  annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /health
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: arch.homework
-    http:
-      paths:
-      - path: /health
-        pathType: Prefix
-        backend:
-          service:
-            name: simple-api
-            port:
-              number: 8000
----
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: default-simple-api
+#   annotations:
+#     nginx.ingress.kubernetes.io/use-regex: "true"
+#     nginx.ingress.kubernetes.io/rewrite-target: /health
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: arch.homework
+#     http:
+#       paths:
+#       - path: /health
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: simple-api
+#             port:
+#               number: 8000
+# ---
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: default-simple-api-extend
-  annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$3
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: arch.homework
-    http:
-      paths:
-      - path: /otusapp(/|$)(.*/*)(health)
-        pathType: Prefix
-        backend:
-          service:
-            name: simple-api
-            port:
-              number: 8000
----
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: default-simple-api-extend
+#   annotations:
+#     nginx.ingress.kubernetes.io/use-regex: "true"
+#     nginx.ingress.kubernetes.io/rewrite-target: /$3
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: arch.homework
+#     http:
+#       paths:
+#       - path: /otusapp(/|$)(.*/*)(health)
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: simple-api
+#             port:
+#               number: 8000
+# ---
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
